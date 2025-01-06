@@ -6,7 +6,66 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:44 by norabino          #+#    #+#             */
-/*   Updated: 2024/12/20 10:39:45 by norabino         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:13:08 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int	ft_strlen(const char *str)
+{
+	int	i;
+
+	if (str == NULL)
+		return (0);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strjoin(const char *s1, const char c)
+{
+	char	*res;
+	int		i;
+
+	if (!c)
+		return (NULL);
+	i = 0;
+	res = (char *)malloc((ft_strlen(s1) + 2) * sizeof(char));
+	if (!res)
+		return (NULL);
+	if (s1)
+	{
+		while (s1[i])
+		{
+			res[i] = s1[i];
+			i++;
+		}
+	}
+	res[i] = c;
+	res[i + 1] = 0;
+	if (s1)
+		free((char *)s1);
+	return (res);
+}
+
+void	ft_putnbr(int n)
+{
+	char	c;
+
+	if (n > 9)
+		ft_putnbr(n / 10);
+	c = n % 10 + '0';
+	write(1, &c, 1);
+}
+void	handler(int signum)
+{
+	static char	c = 0;
+	static int	i = 0;
+}
+
+int	main(void)
+{
+	struct sigaction	sa;
+
+	sa.sa_handler = handler;
+}
