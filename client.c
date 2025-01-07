@@ -6,14 +6,11 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:49 by norabino          #+#    #+#             */
-/*   Updated: 2025/01/06 16:59:50 by norabino         ###   ########.fr       */
+/*   Updated: 2025/01/07 10:11:11 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "minitalk.h"
 
 int	ft_atoi(const char *str)
 {
@@ -61,13 +58,11 @@ void	send_str(int pid, char *str)
 
 int	main(int ac, char *av) 
 {
-	int	pid;
-
 	if (ac != 3)
 	{
 		write(1, "Usage: ./client [PID] [STRING]\n", 30);
 		return (1);
 	}
-	pid = ft_atoi(av[1]);
-	send_str(pid, av[2]);
+	send_str(ft_atoi(av[1]), av[2]);
+	return (0);
 }
