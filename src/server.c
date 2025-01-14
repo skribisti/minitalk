@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:44 by norabino          #+#    #+#             */
-/*   Updated: 2025/01/09 15:44:31 by norabino         ###   ########.fr       */
+/*   Updated: 2025/01/14 09:36:53 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(void)
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	*/
-	ft_printf("Server PID: %d", getpid());
+	printf("Server PID: %d\n", getpid());
 	while (1)
 		pause();
 	return (0);

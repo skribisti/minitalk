@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:49 by norabino          #+#    #+#             */
-/*   Updated: 2025/01/09 15:36:02 by norabino         ###   ########.fr       */
+/*   Updated: 2025/01/14 09:31:48 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		ft_printf("%s", "Usage: ./client [PID] [STRING]\n");
+		printf("%s", "Usage: ./client [PID] [STRING]\n");
 		return (1);
 	}
 	send_str(ft_atoi(av[1]), av[2]);

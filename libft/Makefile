@@ -6,7 +6,7 @@
 #    By: norabino <norabino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 15:12:02 by norabino          #+#    #+#              #
-#    Updated: 2025/01/10 14:03:27 by norabino         ###   ########.fr        #
+#    Updated: 2025/01/14 09:24:34 by norabino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,9 @@ GNL_DIR		=	gnl/
 GNL			=	get_next_line get_next_line_utils
 
 FTPRINTF_DIR	= ft_printf/
-FTPRINTF	=	ft_printf 
+FTPRINTF	=	ft_printf ft_print_bx  ft_print_d ft_print_p\
+				ft_print_u  ft_putnbr_base  ft_strlen ft_print_c\
+				ft_print_s  ft_print_x ft_size\
 
 SRC_FILES+=$(addprefix $(FTIS_DIR),$(FTIS))
 SRC_FILES+=$(addprefix $(FTMEM_DIR),$(FTMEM))
