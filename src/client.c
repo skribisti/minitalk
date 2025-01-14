@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:49 by norabino          #+#    #+#             */
-/*   Updated: 2025/01/14 10:22:36 by norabino         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:46:41 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,15 @@ int	ft_atoi(const char *str)
 
 	n = 0;
 	i = 0;
-	while (str[i] >= '0' && str[i] <= '9' && str[i])
+	while (str[i])
 	{
-		n = n * 10 + str[i] - '0';
-		i++;
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			n = n * 10 + str[i] - '0';
+			i++;
+		}
+		else
+			return (0);
 	}
 	return (n);
 }
@@ -38,7 +43,6 @@ void	send_char(int pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		c >>= 1;
 		usleep(100);
 		i++;
 	}
@@ -54,15 +58,22 @@ void	send_str(int pid, char *str)
 		send_char(pid, str[i]);
 		i++;
 	}
-	send_char(pid, str[i]);
+	send_char(pid, '\n');
 }
 
 int	main(int ac, char **av) 
 {
+	int	pid;
 	if (ac != 3)
 	{
 		printf("%s", "Usage: ./client [PID] [STRING]\n");
 		return (1);
+	}
+	pid = ft_atoi(av[1]);
+	if (!pid)
+	{
+		printf("Error: PID contains only number and can't be equal to zero.\n");
+		return (0);
 	}
 	send_str(ft_atoi(av[1]), av[2]);
 	return (0);
