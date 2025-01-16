@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:49 by norabino          #+#    #+#             */
-/*   Updated: 2025/01/14 10:46:41 by norabino         ###   ########.fr       */
+/*   Updated: 2025/01/16 09:07:27 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,16 @@ void	send_str(int pid, char *str)
 int	main(int ac, char **av) 
 {
 	int	pid;
+
 	if (ac != 3)
 	{
-		printf("%s", "Usage: ./client [PID] [STRING]\n");
+		ft_printf("%s", "Usage: ./client [PID] [STRING]\n");
 		return (1);
 	}
 	pid = ft_atoi(av[1]);
 	if (!pid)
 	{
-		printf("Error: PID contains only number and can't be equal to zero.\n");
+		printf("Error: PID contains only number and can't be zero.\n");
 		return (0);
 	}
 	send_str(ft_atoi(av[1]), av[2]);
