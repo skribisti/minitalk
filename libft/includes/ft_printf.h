@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 08:45:41 by norabino          #+#    #+#             */
-/*   Updated: 2025/01/09 15:52:48 by norabino         ###   ########.fr       */
+/*   Updated: 2025/01/16 09:52:10 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int				ft_print_p(void *nb);
 int				ft_print_x(unsigned int nb);
 int				ft_print_bx(unsigned int nb);
 void			ft_putnbr_base(long nb, char *str, int *ptr_len);
-size_t			ft_strlen(const char* str);
+size_t			ft_strlen(const char *str);
 
 #endif
