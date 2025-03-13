@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:49 by norabino          #+#    #+#             */
-/*   Updated: 2025/03/13 11:49:38 by norabino         ###   ########.fr       */
+/*   Updated: 2025/03/13 14:12:49 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ int	ft_atoi(const char *str)
 			return (0);
 	}
 	return (n);
+}
+
+int	ft_power(int nb, int power)
+{
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	return (nb * ft_power(nb, power - 1));
 }
 
 void	send_char(int pid, char c)
