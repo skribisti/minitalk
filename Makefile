@@ -3,15 +3,14 @@ NAME = minitalk
 start:
 	make -C libft
 	cp libft/libft.a .
-	make all
 
-all: server client
-
-client: src/client.c
-	gcc -Wall -Wextra -Werror src/client.c -o client
+all: start server client
 
 server: src/server.c
-	gcc -Wall -Wextra -Werror src/server.c -o server
+	cc -Wall -Wextra -Werror src/server.c libft.a -o server -g
+
+client: src/client.c
+	cc -Wall -Wextra -Werror src/client.c libft.a -o client -g
 
 $(NAME): server client
 
@@ -20,8 +19,8 @@ clean:
 	make clean -C libft
 
 fclean: clean
-	rm libft/libft.a
-	rm libft.a
+	@if [ -f libft/libft.a ]; then rm libft/libft.a; fi
+	@if [ -f libft.a ]; then rm libft.a; fi
 
 re: clean all
 

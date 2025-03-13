@@ -6,13 +6,13 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 08:41:00 by norabino          #+#    #+#             */
-/*   Updated: 2025/01/09 15:08:22 by norabino         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:30:14 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/get_next_line.h"
 
-int	ft_strlen(char *str)
+/*int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -60,7 +60,7 @@ char	*ft_substr(char *s, int start, int len)
 	}
 	str[i] = 0;
 	return (str);
-}
+}*/
 
 void	*ft_check_join(char **s1, char **s2)
 {
@@ -78,7 +78,7 @@ void	*ft_check_join(char **s1, char **s2)
 	return ("CHECK OK");
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+/*char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -99,4 +99,4 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	free(s1);
 	return (str);
-}
+}*/

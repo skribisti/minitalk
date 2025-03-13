@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:49 by norabino          #+#    #+#             */
-/*   Updated: 2025/01/16 09:53:29 by norabino         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:24:21 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	main(int ac, char **av)
 	pid = ft_atoi(av[1]);
 	if (!pid)
 	{
-		printf("Error: PID contains only number and can't be zero.\n");
+		ft_printf("Error: PID contains only number and can't be zero.\n");
 		return (0);
 	}
 	send_str(ft_atoi(av[1]), av[2]);

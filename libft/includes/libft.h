@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:45:32 by samberna          #+#    #+#             */
-/*   Updated: 2025/01/09 15:20:59 by norabino         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:26:18 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include <strings.h>
+# include "ft_printf.h"
+# include "get_next_line.h"
 
 typedef struct s_list
 {

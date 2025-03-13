@@ -1,130 +1,38 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: norabino <norabino@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/09 15:12:02 by norabino          #+#    #+#              #
-#    Updated: 2025/01/14 09:24:34 by norabino         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+SRC = src/ft_is/ft_isalnum.c src/ft_is/ft_isalpha.c src/ft_is/ft_isascii.c src/ft_is/ft_isdigit.c src/ft_is/ft_isprint.c \
+	src/ft_mem/ft_bzero.c src/ft_mem/ft_calloc.c src/ft_mem/ft_memchr.c src/ft_mem/ft_memmove.c src/ft_mem/ft_memcmp.c \
+	src/ft_mem/ft_memset.c src/ft_mem/ft_memcpy.c \
+	src/ft_put/ft_putchar_fd.c  src/ft_put/ft_putendl_fd.c src/ft_put/ft_putnbr_fd.c src/ft_put/ft_putstr_fd.c\
+	src/ft_to/ft_tolower.c src/ft_to/ft_toupper.c  src/ft_to/ft_itoa.c src/ft_to/ft_atoi.c\
+	src/ft_str/ft_strmapi.c src/ft_str/ft_strncmp.c src/ft_str/ft_strncpy.c src/ft_str/ft_strnstr.c \
+	src/ft_str/ft_split.c src/ft_str/ft_strrchr.c src/ft_str/ft_strchr.c   src/ft_str/ft_strtrim.c \
+	src/ft_str/ft_strdup.c   src/ft_str/ft_substr.c src/ft_str/ft_striteri.c src/ft_str/ft_strjoin.c \
+	src/ft_str/ft_strlcat.c src/ft_str/ft_strlcpy.c src/ft_str/ft_strlen.c\
+	src/ft_lst/ft_lstclear_bonus.c src/ft_lst/ft_lstdelone_bonus.c src/ft_lst/ft_lstiter_bonus.c\
+	src/ft_lst/ft_lstlast_bonus.c src/ft_lst/ft_lstmap_bonus.c src/ft_lst/ft_lstnew_bonus.c \
+	src/ft_lst/ft_lstsize_bonus.c src/ft_lst/ft_lstadd_front_bonus.c src/ft_lst/ft_lstadd_back_bonus.c\
+	src/gnl/get_next_line.c src/gnl/get_next_line_utils.c \
+	src/ft_printf/ft_printf.c src/ft_printf/ft_print_bx.c  src/ft_printf/ft_print_d.c src/ft_printf/ft_print_p.c \
+	src/ft_printf/ft_print_u.c  src/ft_printf/ft_putnbr_base.c src/ft_printf/ft_strlen.c src/ft_printf/ft_print_c.c \
+	src/ft_printf/ft_print_s.c  src/ft_printf/ft_print_x.c src/ft_printf/ft_size.c
 
-SHELL		=	/bin/bash
+NAME = libft.a
+OBJ = ${SRC:.c=.o}
+FLAGS = -Wall -Wextra -Werror
 
-#Standard
+all : $(NAME)
 
-NAME		=	libft.a
-INCLUDE		=	includes/
-SRC_DIR 	=	src/
-OBJ_DIR		=	obj/
-CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra -I
-RM			=	rm -f
-AR			=	ar rcs
-ECHO		=	echo -e
+$(NAME) : $(OBJ)
+	ar -rcs $(NAME) $(OBJ)
 
-#Colors
+%.o: %.c
+	cc $(FLAGS) -c $< -o $@
 
-DEF_COLOR	=	\033[0;39m
-ORANGE		=	\033[0;33m
-GRAY		=	\033[0;90m
-RED			=	\033[0;91m
-GREEN		=	\033[1;92m
-YELLOW		=	\033[1;93m
-BLUE		=	\033[0;94m
-MAGENTA		=	\033[0;95m
-CYAN		=	\033[0;96m
-WHITE		=	\033[0;97m
+clean :
+	rm -rf $(OBJ)
 
-#Sources
+fclean : clean
+	rm -f $(NAME)
 
-FTIS_DIR	=	ft_is/
-FTIS		=	ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
+re : fclean all
 
-FTMEM_DIR	=	ft_mem/
-FTMEM		=	ft_bzero ft_calloc ft_memchr ft_memcmp ft_memmove ft_memset
-
-FTPUT_DIR	=	ft_put/
-FTPUT		=	ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd
-
-FTTO_DIR	=	ft_to/
-FTTO		=	ft_atoi ft_itoa ft_tolower ft_toupper
-
-FTSTR_DIR	=	ft_str/
-FTSTR		=	ft_split ft_strchr ft_strdup ft_striteri ft_strjoin \
-				ft_strlcat ft_strlcpy ft_strlen ft_strmapi ft_strncmp \
-				ft_strnstr ft_strrchr ft_strtrim ft_substr 
-
-FTLST_DIR	=	ft_lst/
-FTLST		=	ft_lstadd_back_bonus ft_lstadd_front_bonus \
-				ft_lstclear_bonus ft_lstdelone_bonus \
-				ft_lstiter_bonus ft_lstlast_bonus \
-				ft_lstmap_bonus ft_lstnew_bonus ft_lstsize_bonus
-
-GNL_DIR		=	gnl/
-GNL			=	get_next_line get_next_line_utils
-
-FTPRINTF_DIR	= ft_printf/
-FTPRINTF	=	ft_printf ft_print_bx  ft_print_d ft_print_p\
-				ft_print_u  ft_putnbr_base  ft_strlen ft_print_c\
-				ft_print_s  ft_print_x ft_size\
-
-SRC_FILES+=$(addprefix $(FTIS_DIR),$(FTIS))
-SRC_FILES+=$(addprefix $(FTMEM_DIR),$(FTMEM))
-SRC_FILES+=$(addprefix $(FTPUT_DIR),$(FTPUT))
-SRC_FILES+=$(addprefix $(FTTO_DIR),$(FTTO))
-SRC_FILES+=$(addprefix $(FTSTR_DIR),$(FTSTR))
-SRC_FILES+=$(addprefix $(FTLST_DIR),$(FTLST))
-SRC_FILES+=$(addprefix $(GNL_DIR),$(GNL))
-SRC_FILES+=$(addprefix $(FTPRINTF_DIR),$(FTPRINTF))
-
-SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
-OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
-
-OBJF		=	.cache_exists
-
-start:
-			@echo -e -n "$(YELLOW)[LIBFT]:\t$(DEF_COLOR)"
-			@echo -e -n "$(RED)[$(DEF_COLOR)"
-			@make all
-
-all:		$(NAME)
-
-$(NAME):	$(OBJ)
-			@$(AR) $(NAME) $(OBJ)
-			@echo -e -n "$(RED)]$(DEF_COLOR)"
-			@$(ECHO) "$(GREEN) => 100%$(DEF_COLOR)"
-
-$(OBJ_DIR)%.o : $(SRC_DIR)%.c | $(OBJF)
-			@echo -e -n "$(ORANGE)=$(DEF_COLOR)"
-			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-
-$(OBJF):
-			@mkdir -p $(OBJ_DIR)
-			@mkdir -p $(OBJ_DIR)$(FTIS_DIR)
-			@mkdir -p $(OBJ_DIR)$(FTMEM_DIR)
-			@mkdir -p $(OBJ_DIR)$(FTPUT_DIR)
-			@mkdir -p $(OBJ_DIR)$(FTTO_DIR)
-			@mkdir -p $(OBJ_DIR)$(FTSTR_DIR)
-			@mkdir -p $(OBJ_DIR)$(FTLST_DIR)
-			@mkdir -p $(OBJ_DIR)$(GNL_DIR)
-			@mkdir -p $(OBJ_DIR)$(FTPRINTF_DIR)
-			@touch $(OBJF)
-
-clean:
-			@$(RM) -r $(OBJ_DIR)
-			@$(RM) $(OBJF)
-			@echo -e -n "$(BLUE)[LIBFT]:\tobject files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
-
-fclean:		clean
-			@$(RM) $(NAME)
-			@echo -e -n "$(CYAN)[LIBFT]:\texec. files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
-
-re:			fclean all
-			@echo -e -n "$(GREEN)Cleaned and rebuilt everything for libft!$(DEF_COLOR)\n"
-
-norm:
-			@norminette $(SRC) $(INCLUDE) | grep -v Norme -B1 || true
-
-.PHONY:		all clean fclean re norm
+.PHONY : all clean fclean re 
