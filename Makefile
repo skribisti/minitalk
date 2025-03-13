@@ -1,10 +1,12 @@
 NAME = minitalk
 
 start:
-	make -C libft
+	@make -C libft
 	cp libft/libft.a .
+	make server
+	make client
 
-all: start server client
+all: start
 
 server: src/server.c
 	cc -Wall -Wextra -Werror src/server.c libft.a -o server -g

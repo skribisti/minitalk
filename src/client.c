@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:49 by norabino          #+#    #+#             */
-/*   Updated: 2025/03/13 09:24:21 by norabino         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:49:38 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ int	ft_atoi(const char *str)
 
 void	send_char(int pid, char c)
 {
-	int	i;
+	int	bit;
 
-	i = 0;
-	while (i < 8)
+	bit = 0;
+	while (bit < 8)
 	{
-		if ((c & (0x01 << i)) != 0)
+		if ((c & (0x01 << bit)) != 0)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
 		usleep(100);
-		i++;
+		bit++;
 	}
 }
 
@@ -76,6 +76,6 @@ int	main(int ac, char **av)
 		ft_printf("Error: PID contains only number and can't be zero.\n");
 		return (0);
 	}
-	send_str(ft_atoi(av[1]), av[2]);
+	send_str(pid, av[2]);
 	return (0);
 }
