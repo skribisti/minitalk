@@ -21,7 +21,7 @@ clean:
 	make clean -C libft
 
 fclean: clean
-	@if [ -f libft/libft.a ]; then rm libft/libft.a; fi
+	make fclean -C libft
 	@if [ -f libft.a ]; then rm libft.a; fi
 
 re: clean all
