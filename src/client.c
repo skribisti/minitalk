@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:49 by norabino          #+#    #+#             */
-/*   Updated: 2025/03/13 16:32:34 by norabino         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:00:21 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	send_str(int pid, char *str)
 		send_char(pid, str[i]);
 		i++;
 	}
-	send_char(pid, '\n');
+	send_char(pid, '\0');
 }
 
 int	main(int ac, char **av)
