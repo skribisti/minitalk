@@ -28,7 +28,7 @@ $(NAME) : $(OBJ)
 	@cc $(FLAGS) -c $< -o $@
 
 clean :
-	@rm -rf obj
+	@rm -rf $(OBJ)
 
 fclean : clean
 	rm -f $(NAME)
