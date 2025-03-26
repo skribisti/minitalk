@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:44 by norabino          #+#    #+#             */
-/*   Updated: 2025/03/25 11:54:13 by norabino         ###   ########.fr       */
+/*   Updated: 2025/03/26 17:18:33 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,22 +64,6 @@ void	handler(int signal)
 		c = 0;
 	}
 }
-
-/*void	handler(int signal)
-{
-	static int	bit;
-	static int	i;
-
-	if (signal == SIGUSR1)
-		i |= 1 << bit;
-	bit++;
-	if (bit == 8)
-	{
-		ft_printf("%c", i);
-		bit = 0;
-		i = 0;
-	}
-}*/
 
 int	main(int ac, char **av)
 {
