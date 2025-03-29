@@ -30,5 +30,6 @@ dev:
 	git add .;
 	git commit -m "dev" ;
 	git push --force;
+	git status;
 
 .PHONY: all clean fclean re dev
