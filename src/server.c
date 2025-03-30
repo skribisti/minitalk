@@ -6,12 +6,11 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:44 by norabino          #+#    #+#             */
-/*   Updated: 2025/03/30 17:53:18 by norabino         ###   ########.fr       */
+/*   Updated: 2025/03/30 17:56:02 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk.h"
-
 
 int	ft_strlen(char *str)
 {
@@ -29,7 +28,7 @@ int	ft_strlen(char *str)
 char	*ft_strjoin_char(char *s1, char c)
 {
 	char	*res;
-	int			i;
+	int		i;
 
 	if (!c)
 		return (exit(1), NULL);
