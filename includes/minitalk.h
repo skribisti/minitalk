@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 09:19:25 by norabino          #+#    #+#             */
-/*   Updated: 2025/03/13 10:35:05 by norabino         ###   ########.fr       */
+/*   Updated: 2025/03/30 13:52:42 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <signal.h>
-# include "../libft/includes/libft.h"
-# include "../libft/includes/ft_printf.h"
 
 # define BANNER0 "\n          :::        :::        :::        ::::::::\n"
 # define BANNER1 "       :+: :+:      :+:        :+:       :+:    :+:\n"

@@ -1,28 +1,17 @@
 NAME = minitalk
 
-start:
-	make server
-	make client
-
-all: start
+all: server client
 
 server: src/server.c
-	if [ ! -f libft.a ]; then make -C libft ; cp libft/libft.a . ; fi
-	cc -Wall -Wextra -Werror src/server.c libft.a -o server -g
+	cc -Wall -Wextra -Werror src/server.c -o server -g
 
 client: src/client.c
-	if [ ! -f libft.a ]; then make -C libft ; cp libft/libft.a . ; fi
-	cc -Wall -Wextra -Werror src/client.c libft.a -o client -g
-
-$(NAME): server client
+	cc -Wall -Wextra -Werror src/client.c -o client -g
 
 clean:
-	rm -f libft.a
-	make clean -C libft
+	rm -f server client
 
 fclean: clean
-	rm -f server client
-	make fclean -C libft
 
 re: clean all
 
