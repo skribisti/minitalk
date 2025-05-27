@@ -6,7 +6,7 @@
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:49 by norabino          #+#    #+#             */
-/*   Updated: 2025/03/30 17:53:57 by norabino         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:20:14 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sig_handler(int sig)
 {
 	if (sig == SIGUSR1)
 		g_ack_received = 1;
-	else
+	if (sig == SIGUSR2)
 		write(1, "Message sent successfully!\n", 27);
 }
 
@@ -61,6 +61,11 @@ void	send_char(int pid, char c)
 			time++;
 			usleep(1);
 		}
+		if (time >= 500)
+		{
+			write(1, "Error: Server not responding\n", 29);
+            exit(1);
+		}
 		bit++;
 	}
 }
@@ -83,9 +88,11 @@ int	main(int ac, char **av)
 	struct sigaction	sa;
 	int					pid;
 
+	sa.sa_handler = sig_handler;
 	sa.sa_flags = 0;
 	sigemptyset(&sa.sa_mask);
-	sa.sa_handler = sig_handler;
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
 	if (ac != 3)
 	{
 		write(1, "Usage: ./client [PID] [STRING]\n", 32);
@@ -97,8 +104,6 @@ int	main(int ac, char **av)
 		write(1, "Error: PID contains only number and can't be zero.\n", 52);
 		return (0);
 	}
-	sigaction(SIGUSR1, &sa, NULL);
-	sigaction(SIGUSR2, &sa, NULL);
 	send_str(pid, av[2]);
 	return (0);
 }

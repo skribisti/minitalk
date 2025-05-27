@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   test_serv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: norabino <norabino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:39:44 by norabino          #+#    #+#             */
-/*   Updated: 2025/05/27 18:22:12 by norabino         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:22:16 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,12 @@ int	ft_strlen(char *str)
 char	*ft_strjoin_char(char *s1, char c)
 {
 	char	*res;
-	size_t	i;
+	int		i;
 
 	if (!c)
 		return (exit(1), NULL);
 	i = 0;
-	if (s1)
-		res = (char *)malloc((ft_strlen(s1) + 2) * sizeof(char));
-	else
-		res = (char *)malloc(2 * sizeof(char));
+	res = (char *)malloc((ft_strlen(s1) + 2) * sizeof(char));
 	if (!res)
 		return (exit(1), NULL);
 	if (s1)
